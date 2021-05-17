@@ -74,10 +74,15 @@ class TwythonConnector:
                     time.sleep(response["wait_time"])
 
 
-# if __name__ == "__main__":
-#
-#     connector = TwythonConnector("0.0.0.0:5000",
-#                                  "/Users/deepak/Desktop/DMML/GitRepo/fake_news_crawler/data/twitter_keys_unique.txt")
-#
-#     for i in range(1000):
-#         connection = connector.get_twython_connection("get_followers_ids")
+if __name__ == "__main__":
+
+    connector = TwythonConnector("0.0.0.0:5000",
+                                 r"C:\Users\kqato01\PycharmProjects\FakeNewsNet\code\resources\tweet_keys_file.json")
+    config = json.load(open(r"C:\Users\kqato01\PycharmProjects\FakeNewsNet\code\resources\tweet_keys_file.json"))
+    for i in range(1000):
+        #connection = connector.get_twython_connection("get_followers_ids")
+        connection = connector._get_twitter_connection(
+            # pp_key=config['app_key'], app_secret=config['app_secret'], oauth_token=config['oauth_token'],
+            # oauth_token_secret=config['oauth_token_secret']
+        )
+        print(connection)

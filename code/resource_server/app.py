@@ -5,7 +5,7 @@ from flask import jsonify
 from flask import request
 from flask_cors import CORS
 
-from resource_server.ResourceAllocator import ResourceAllocator
+from ResourceAllocator import ResourceAllocator
 
 app = Flask(__name__)
 
@@ -52,7 +52,7 @@ def get_key_index():
 
 
 def get_num_process():
-    json_object = json.load(open("config.json"))
+    json_object = json.load(open(r"C:\Users\kqato01\PycharmProjects\FakeNewsNet\code\config.json"))
     return int(json_object["num_twitter_keys"])
 
 
